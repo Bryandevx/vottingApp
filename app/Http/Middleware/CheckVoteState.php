@@ -19,7 +19,7 @@ class CheckVoteState
         //$user = Auth::user()->rol;
         //dd($user);
         if(Auth::user()->vote_state == 1){
-            return redirect('/');
+            return redirect('/deniedVote');
         }
         
         return $next($request);

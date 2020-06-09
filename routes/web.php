@@ -28,6 +28,7 @@ Route::get('/', function () {
     return view('contents.voteView');
 }); // creates route to candidate selection view after login*/
 
+ Route::get('/deniedVote', function () { return view('contents.alreadyVote');})->middleware('auth'); 
 
 Auth::routes();
 
