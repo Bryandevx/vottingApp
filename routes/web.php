@@ -30,7 +30,8 @@ Route::get('/', function () {
 
  Route::get('/deniedVote', function () { return view('contents.alreadyVote');})->middleware('auth'); 
 
-Auth::routes();
+//Auth::routes();
+Auth::routes(['register' => false]);
 
 //Auth::routes(['register' => false]); // this call creates all routes for auth methods except regsiter methods(not necessary in this app)
 

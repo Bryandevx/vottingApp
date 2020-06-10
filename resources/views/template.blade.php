@@ -18,7 +18,19 @@
                 <li><a href="#"></a><img src="{{ URL::asset('assets/icons/instagram.png') }}" alt=""></li>
                 <li><a href="#"></a><img src="{{ URL::asset('assets/icons/linkdin.png') }}" alt=""></li>
                 <li><a href="#"></a><img src="{{ URL::asset('assets/icons/twitter.png') }}" alt=""></li>
-                <li><a href="{{ url('login') }}">Login</a></li> <!--redirects to login page-->
+                @if (Auth::guest())
+                <li><a href="{{ url('login') }}">Login</a></li>
+                <!--redirects to login page-->
+                @else
+                <li> {{ Auth::user()->name }} </li>
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                @endif
             </ul>
         </nav>
     </header>
