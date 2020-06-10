@@ -142,6 +142,44 @@ class VotesController extends Controller
             $current_candidate->save();
         }
 
+        $totalAcademicVotes = 0;
+        $totalStudentVotes = 0;
+        $totalAdminVotes = 0;
+
+        foreach($allVotesData as $vote_rol){
+            $current_user_rol = $vote_rol->user_rol;
+
+            if($current_user_rol == 'academico'){
+                $totalAcademicVotes += 1;
+            }
+
+            if($current_user_rol == 'estudiante'){
+                $totalStudentVotes += 1;
+            }
+
+            if($current_user_rol == 'administrativo'){
+                $totalAdminVotes += 1;
+            }            
+        }
+
+        if($totalAcademicVotes > 0){
+            $setPercentageAcademic = (float)(60 / $totalAcademicVotes);
+        }else{
+            $setPercentageAcademic = 0;
+        }
+        if($totalStudentVotes > 0){
+            $setPercentageStudent = (float) (25 / $totalStudentVotes);
+        } else{
+            $setPercentageStudent = 0;
+        }
+        if($totalAdminVotes > 0){
+            $setPercentageAdmin = (float)( 15 / $totalAdminVotes);
+        } else{
+            $setPercentageAdmin = 0;
+        }
+
+      //  dd($setPercentageAcademic, $totalAcademicVotes);
+
         //agregando la puntuacion actual para cada candidato segun los votos
         foreach($allVotesData as $current_vote){
             $new_candidate_points = 0;
@@ -150,20 +188,24 @@ class VotesController extends Controller
             $current_candidate_id = $current_vote->id_candidate;
 
             if($current_user_rol == 'academico'){
-                $new_candidate_points = $getTotalVotes * 0.60;
+                //$new_candidate_points = $getTotalVotes * 0.60;
+                $new_candidate_points = $setPercentageAcademic;
             }
 
             if($current_user_rol == 'estudiante'){
-                $new_candidate_points = $getTotalVotes * 0.25;
+                //$new_candidate_points = $getTotalVotes * 0.25;
+                $new_candidate_points = $setPercentageStudent;
             }
 
             if($current_user_rol == 'administrativo'){
-                $new_candidate_points = $getTotalVotes * 0.15;
+                //$new_candidate_points = $getTotalVotes * 0.15;
+                $new_candidate_points = $setPercentageAdmin;
             }
 
             $candidate = Candidate::find($current_candidate_id);
             $actual_points =  floatval($candidate->points);
             $candidate->points = $actual_points + $new_candidate_points;
+            //$candidate->points = $actual_points + $new_candidate_points;
             $candidate->save();
 
             //dd($candidate);
@@ -174,7 +216,7 @@ class VotesController extends Controller
 
         $query['results']=Candidate::orderBy('points','desc')->get();
 
-        return view('/contents.results',$query);
+        return view('/contents.results',$query); 
     }
 
     /**
