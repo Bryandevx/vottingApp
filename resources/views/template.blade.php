@@ -15,9 +15,9 @@
         <nav>
             <h1 id="logo">Universidad Nacional</h1>
             <ul class="nav-links">
-                <li><a href="#"></a><img src="{{ URL::asset('assets/icons/instagram.png') }}" alt=""></li>
-                <li><a href="#"></a><img src="{{ URL::asset('assets/icons/linkdin.png') }}" alt=""></li>
-                <li><a href="#"></a><img src="{{ URL::asset('assets/icons/twitter.png') }}" alt=""></li>
+                <li><a href="{{ URL::to('https://www.instagram.com/una.ac.cr/?hl=es-la') }}" target="_blank"><img src="{{ URL::asset('assets/icons/instagram.png') }}" alt="instagram icon"></a></li>
+                <li><a href="{{ URL::to('https://cr.linkedin.com/') }}" target="_blank"><img src="{{ URL::asset('assets/icons/linkdin.png') }}" alt="linkdin icon"></a></li>
+                <li><a href="{{ URL::to('https://twitter.com/comunidadUNACR?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor') }}" target="_blank"><img src="{{ URL::asset('assets/icons/twitter.png') }}" alt="twitter icon"></a></li>
                 @if (Auth::guest())
                 <li><a href="{{ url('login') }}">Login</a></li>
                 <!--redirects to login page-->

@@ -44,7 +44,7 @@
                         </div>
                         <div class="card_info">
                             <p class="title">
-                                Donald John Trump, ​​​​ actual presidente de USA
+                                Donald John Trump, ​​​​ empresario y actual presidente de USA
                                 y personalidad mediatica en diversos sectores
                             </p>
                         </div>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="card_bottom">
                         <div class="card_category">
-                            ElonMusk
+                            Elon Musk
                         </div>
                         <div class="card_info">
                             <p class="title">

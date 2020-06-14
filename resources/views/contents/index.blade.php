@@ -5,7 +5,7 @@
     <div id="home-container">
 
     <div id="inner">
-        <img src="icons/MIT.png" alt="" id="fsection-logo">
+        <img src="{{ URL::asset('assets/icons/MIT.png') }}" alt="" id="fsection-logo">
         <h1>UNA elecciones de rector 2020</h1>
         <p class="subtitle">Pagina oficial para emitir su voto digital
             de una manera segura
