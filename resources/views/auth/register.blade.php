@@ -5,16 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header text-center bg-danger">{{ __('Registro') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <div class="input-group mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
-                            <div class="col-md-6">
+                 
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -22,15 +22,21 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                      <span class="fas fa-user"></span>
+                                    </div>
+                                  </div>
+                
                         </div>
 
 
 
-                        <div class="form-group row">
+                        <div class="input-group mb-3">
                             <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
 
-                            <div class="col-md-6">
+                           
                                 <input id="rol" type="text" class="form-control @error('name') is-invalid @enderror" name="rol" value="{{ old('rol') }}" required autocomplete="rol" autofocus>
 
                                 @error('name')
@@ -38,7 +44,13 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                      <span class="fas fa-users"></span>
+                                    </div>
+                                  </div>
+                           
                         </div>
 
 
@@ -47,10 +59,10 @@
 
 
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="input-group mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
 
-                            <div class="col-md-6">
+                      
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -58,13 +70,19 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                      <span class="fas fa-envelope"></span>
+                                    </div>
+                                  </div>
+
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="input-group mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
-                            <div class="col-md-6">
+                      
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
@@ -72,22 +90,36 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                      <span class="fas fa-key"></span>
+                                    </div>
+                                  </div>
+                
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                        <div class="input-group mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Contraseña') }}</label>
 
-                            <div class="col-md-6">
+                      
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                           
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                      <span class="fas fa-key"></span>
+                                    </div>
+                                  </div>
                             </div>
+
+                        
                         </div>
 
                          <input type="hidden" name="vote_state" value="0">   
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                        <div class="input-group mb-3">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-success col-md-6">
+                                    {{ __('Registrarme') }}
                                 </button>
                             </div>
                         </div>
